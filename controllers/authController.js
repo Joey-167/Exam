@@ -254,7 +254,6 @@ const { generateToken, verifyToken } = require('../utils/generateToken');
 
 //  Generating a token after user login
 const loginUser = async (req, res) => {
-  // Authenticate user (example, actual implementation may vary)
   const user = await User.findOne({ email: req.body.email });
   if (user && user.comparePassword(req.body.password)) {
     const token = generateToken(user._id, user.role);
